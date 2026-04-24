@@ -5,16 +5,18 @@ requiredLogin();
 $Content=$_POST['Content'];
 $Date=date('y/m/d');
 $UserId=$_SESSION['user']['user_id'];
-$FilmId=$_POST['FilmId'];
+
+
 
 if ((int)$_SESSION['user']['role']===1) {
+    $FilmId=$_POST['FilmId'];
     createReviewFilm($Content,$Date,$UserId,$FilmId);
     header('location:list.php');
     exit();
 }
 
 
-
+$FilmId=$_GET['id'];
 createReviewFilm($Content,$Date,$UserId,$FilmId);
 header("location:../UserView/detail.php?id=".$FilmId);
 exit();
