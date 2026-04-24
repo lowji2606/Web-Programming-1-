@@ -49,10 +49,10 @@ function createReviewFilm ($Content,$Date,$UserId,$FilmId){
     $stmt->execute([$Content,$Date,$UserId,$FilmId]);
 
 }
-function editReviewFilm ($id,$Content,$Date,$image) {
+function editReviewFilm ($id,$Content,$Date) {
     global $pdo ;
-    $stmt=$pdo->prepare('UPDATE reviewfilm SET  Content=?,Date=?,image=? WHERE id=?');
-    $stmt->execute([$Content,$Date,$image,$id]);
+    $stmt=$pdo->prepare('UPDATE reviewfilm SET  Content=?,Date=? WHERE id=?');
+    $stmt->execute([$Content,$Date,$id]);
 }
 function deleteReviewFilm ($id){
     global $pdo ;
